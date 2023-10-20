@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<string>
 
 void swap(int *arr, int a, int b)
 {
@@ -42,6 +43,7 @@ int Reverse(int arr[],int size){
 
 int main()
 {
+    int string = "hello";
     int arr[] = {1, 2, 3, 4, 5, 6,7};
     int arr2[] = {1, 2, 3, 4, 5, 6,7,12,234,235,24,35,32,34,4,52434,345,65,75545,467,866,766};
 
