@@ -20,9 +20,14 @@ public:
     }
     void Enqueue(int data)
     {
-        PushPointer += 1;
-        size = PushPointer - PopPointer;
-        queue[PushPointer] = data;
+        if (PushPointer < MAX)
+        {
+            PushPointer += 1;
+            size = PushPointer - PopPointer;
+            queue[PushPointer] = data;
+        }else{
+            printf("queue is full");
+        }
     }
 
     void Dequeue()
@@ -32,16 +37,26 @@ public:
             queue[PopPointer] = 0;
             PopPointer += 1;
             size = PushPointer - PopPointer;
-        }else{
+        }
+        else
+        {
             PopPointer = 0;
             PushPointer = -1;
+            size = 0;
         }
     }
     void isEmpty()
     {
+        if(size> 0 ){
+            printf("Queue is empty");
+        }
+
     }
     void Peek()
     {
+        if(PopPointer > -1 && size > 0 ){
+            printf("Pop: %d\n",queue[PopPointer]);
+        }
     }
     void PrintQueue()
     {
@@ -63,13 +78,15 @@ int main()
     q1.Enqueue(3);
     q1.Enqueue(4);
     q1.Enqueue(5);
+    q1.Peek();
     q1.Enqueue(6);
     q1.Dequeue();
+    q1.Peek();
     q1.Dequeue();
+    q1.Peek();
     q1.Dequeue();
-    q1.Dequeue();
-    q1.Dequeue();
-    q1.Dequeue();
+    
+    
     q1.PrintQueue();
     return 0;
 }
