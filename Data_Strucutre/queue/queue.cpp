@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <iostream>
+
+using namespace std;
 
 #define MAX 1000
 
@@ -49,23 +52,25 @@ public:
             printf("Queue is empty\n");
         }
     }
-    void isEmpty()
+    bool isEmpty()
     {
         if (size > 0)
         {
             printf("Queue size is 0");
+            return true;
         }
+        return false;
     }
     void Peek()
     {
-        if (PopPointer > -1 && size > 0)
+        if (PopPointer > -1 && isEmpty())
         {
             printf("Peek: %d\n", queue[PopPointer]);
         }
     }
     void PrintQueue()
     {
-        if (size > 0)
+        if (isEmpty())
         {
             for (int i = PopPointer; i < PushPointer; i++)
             {
@@ -96,6 +101,9 @@ int main()
     q1.Enqueue(2);
     q1.Enqueue(3);
     q1.Peek();
+    q1.Dequeue();
+    q1.Dequeue();
+    q1.Dequeue();
     q1.Dequeue();
     q1.Dequeue();
     q1.Dequeue();
