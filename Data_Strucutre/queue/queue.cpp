@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#define MAX 1000
+#define MAX 5
 
 class Queue
 {
@@ -23,14 +23,12 @@ public:
     }
     void Enqueue(int data)
     {
-        if (PushPointer < MAX)
+        if (PushPointer <= MAX)
         {
             PushPointer += 1;
             size = PushPointer - PopPointer;
             queue[PushPointer] = data;
-        }
-        else
-        {
+        } else{
             printf("queue is full");
         }
     }
@@ -56,7 +54,6 @@ public:
     {
         if (size > 0)
         {
-            printf("Queue size is 0");
             return true;
         }
         return false;
@@ -82,34 +79,25 @@ public:
 
 int main()
 {
-    Queue q1;
+    Queue q1 ;
     q1.Enqueue(1);
     q1.Enqueue(2);
     q1.Enqueue(3);
     q1.Enqueue(4);
     q1.Enqueue(5);
-    q1.Peek();
-    q1.Enqueue(6);
+
     q1.Dequeue();
-    q1.Peek();
-    q1.Dequeue();
-    q1.Peek();
     q1.Dequeue();
     q1.Dequeue();
 
     q1.Enqueue(1);
-    q1.Enqueue(2);
-    q1.Enqueue(3);
-    q1.Peek();
-    q1.Dequeue();
-    q1.Dequeue();
-    q1.Dequeue();
-    q1.Dequeue();
-    q1.Dequeue();
-    q1.Dequeue();
-    q1.Dequeue();
+    
     q1.Dequeue();
 
+
+
     q1.PrintQueue();
+
+
     return 0;
 }
