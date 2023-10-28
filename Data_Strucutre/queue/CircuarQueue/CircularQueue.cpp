@@ -1,9 +1,12 @@
+#include<iostream>
+
+using namespace std;
 #define MAX 5
 
 class CircularQueue
 {
 private:
-    int *arr;
+    int *arr[MAX];
     int PushPointer;
     int PopPointer;
 
@@ -11,28 +14,34 @@ public:
     void Enqueue(int data)
     {
         if(isFull())
+        return;
         if(isEmpty()){
             PushPointer = PopPointer =  0;
         }else{
             PushPointer = (PushPointer+1)%MAX;
+
         }
 
-        arr[PushPointer] = data ;
+        *arr[PushPointer] = data ;
+
+        cout<< data <<'\n';
     }
 
     void Dequeue()
     {
         int temp = 0 ;
-        if(isFull()){
+        if(isEmpty()){
             return;
         }else if(PopPointer == PushPointer){
-            temp = arr[PopPointer];
+            temp = *arr[PopPointer];
+            *arr[PopPointer] = 0 ;
             PopPointer = PushPointer = -1;
         }else{
-            temp = arr[PopPointer];
+            temp = *arr[PopPointer];
+            *arr[PopPointer] = 0 ;
             PopPointer = (PopPointer+1)%MAX;
         }
-
+        
     }
 
     bool isEmpty()
@@ -54,19 +63,26 @@ public:
 
     void Print()
     {
-        if (isEmpty())
+        if (true)
         {
 
             for (int i = 0; i < MAX; i++)
             {
-                cout << i << "->" << arr[i]
+                cout << i << "->" << arr[i];
             }
         }
     }
 
-}
+};
 
 int main()
 {
     CircularQueue cq1;
+
+    cq1.Enqueue(1);
+    cq1.Enqueue(2);
+    cq1.Enqueue(3);
+    cq1.Enqueue(4);
+    cq1.Enqueue(5);
+    cq1.Print();
 }
