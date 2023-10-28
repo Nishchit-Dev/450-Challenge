@@ -1,8 +1,29 @@
+#define MAX 5
+
 class CircularQueue{
-    public:
+    private:
+        int* arr;
         int PushPointer;
         int PopPointer;
-        int 
+
+    public:
+        void Enqueue(){
+
+        }
+
+        void Dequeue(){
+
+        }
+
+        void isEmpty(){
+
+        }
+        
+        void Print(){
+            
+        }
+
+
 }
 
 int main(){
