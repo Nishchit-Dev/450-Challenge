@@ -37,20 +37,24 @@ public:
         int temp = 0;
         if (isEmpty())
         {
+            cout<<"empty";
             return;
         }
         else if (PopPointer == PushPointer)
         {
+            cout<<"pop == push";
             temp = arr[PopPointer];
             arr[PopPointer] = 0;
             PopPointer = PushPointer = -1;
         }
         else
         {
+            cout<<"pop == push";
             temp = arr[PopPointer];
             arr[PopPointer] = 0;
             PopPointer = (PopPointer + 1) % MAX;
         }
+        cout<<"Data : "<<temp<<"\n";
     }
 
     bool isEmpty()
@@ -91,6 +95,6 @@ int main()
     cq1.Enqueue(1);
     cq1.Enqueue(2);
     cq1.Enqueue(3);
-
+    cq1.Dequeue();
     cq1.Print();
 }
