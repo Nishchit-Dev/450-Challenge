@@ -8,7 +8,7 @@ class CircularQueue
 private:
     int arr[MAX];
     int PushPointer = -1;
-    int PopPointer = 1;
+    int PopPointer =-1;
 
 public:
     void Enqueue(int data)
@@ -37,7 +37,7 @@ public:
         int temp = 0;
         if (isEmpty())
         {
-            cout<<"empty";
+            cout<<"Empty \n";
             return;
         }
         else if (PopPointer == PushPointer)
@@ -49,7 +49,7 @@ public:
         }
         else
         {
-            cout<<"pop == push";
+            cout<<"pop != push";
             temp = arr[PopPointer];
             arr[PopPointer] = 0;
             PopPointer = (PopPointer + 1) % MAX;
@@ -80,7 +80,7 @@ public:
         if (!isEmpty())
         {
 
-            for (int i = 0; i <= PushPointer; i++)
+            for (int i = PopPointer; i <= PushPointer; i++)
             {
                 cout << i << "->" << arr[i] << "\n";
             }
