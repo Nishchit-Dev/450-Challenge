@@ -2,34 +2,39 @@
 
 using namespace std;
 #define MAX 5
-
+#define Space " \n "
 class CircularQueue
 {
 private:
     int arr[MAX];
     int PushPointer = -1;
-    int PopPointer =-1;
+    int PopPointer = -1;
 
 public:
     void Enqueue(int data)
     {
-        // if (isFull())
-        // {
-        //     return;
-        // }
+        if (isFull())
+        {
+            cout << "Queue is Full "<<data<<" could not be Enqueued \n";
+            return;
+        }
 
         if (isEmpty())
         {
+            cout << "Push++ & was Empty" << PushPointer << " \n";
+
             PushPointer = PopPointer = 0;
         }
         else
         {
+            cout << "Push++" << PushPointer << " \n";
+            ;
             PushPointer = (PushPointer + 1) % MAX;
         }
 
         arr[PushPointer] = data;
-
-        cout << data << '\n';
+        cout << PushPointer << " : " << data << " \n";
+        // cout << data << '\n';
     }
 
     void Dequeue()
@@ -37,24 +42,22 @@ public:
         int temp = 0;
         if (isEmpty())
         {
-            cout<<"Empty \n";
+            cout << "Empty \n";
             return;
         }
         else if (PopPointer == PushPointer)
         {
-            cout<<"pop == push";
             temp = arr[PopPointer];
             arr[PopPointer] = 0;
             PopPointer = PushPointer = -1;
         }
         else
         {
-            cout<<"pop != push";
             temp = arr[PopPointer];
             arr[PopPointer] = 0;
             PopPointer = (PopPointer + 1) % MAX;
         }
-        cout<<"Data : "<<temp<<"\n";
+        cout << "Popped++ "<< PopPointer <<" & Popped Data ->" << temp << Space;
     }
 
     bool isEmpty()
@@ -77,6 +80,7 @@ public:
 
     void Print()
     {
+        cout<<"Popped ->"<<PopPointer << " Pushed -> " << PushPointer <<"\n";
         if (!isEmpty())
         {
 
@@ -95,6 +99,12 @@ int main()
     cq1.Enqueue(1);
     cq1.Enqueue(2);
     cq1.Enqueue(3);
+    cq1.Enqueue(4);
+    cq1.Enqueue(5);
     cq1.Dequeue();
+    cq1.Enqueue(6);
+    cq1.Enqueue(10);
+
+
     cq1.Print();
 }
