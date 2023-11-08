@@ -3,8 +3,10 @@
 using namespace std;
 #define MAX 5
 #define Space " \n "
-class CircularQueue
-{
+
+
+class CircularQueue{
+
 private:
     int arr[MAX];
     int PushPointer = -1;
@@ -23,18 +25,18 @@ public:
 
             if (isEmpty())
             {
-                cout << "empty\n";
                 PushPointer = PopPointer = 0;
                 arr[PushPointer] = data;
             }
             else
             {
                 PushPointer = (PushPointer + 1) % MAX;
-
+                cout<<"Push : "<<PushPointer<<"\n";
                 arr[PushPointer] = data;
             }
+            cout << "Push : " << (PushPointer + 1) % MAX << " & Pop :" << PopPointer << '\n';
 
-            cout << PushPointer << " <- Index , Data -> " << data << " \n";
+            // cout << PushPointer << " <- Index , Data -> " << data << " \n";
         }
     }
 
@@ -48,6 +50,7 @@ public:
         }
         else if (PopPointer == PushPointer)
         {
+
             temp = arr[PopPointer];
             arr[PopPointer] = 0;
             PopPointer = PushPointer = -1;
@@ -58,7 +61,7 @@ public:
             arr[PopPointer] = 0;
             PopPointer = (PopPointer + 1) % MAX;
         }
-        cout << "Push : " << PushPointer << "\n";
+        cout << "Push :" << (PushPointer + 1) % MAX << " & Pop :" << PopPointer << '\n';
     }
 
     bool isEmpty()
@@ -74,6 +77,7 @@ public:
     {
         if ((PushPointer + 1) % MAX == PopPointer)
         {
+            cout << "full\n";
             return true;
         }
         return false;
@@ -91,6 +95,7 @@ public:
             }
         }
     }
+    
 };
 
 int main()
