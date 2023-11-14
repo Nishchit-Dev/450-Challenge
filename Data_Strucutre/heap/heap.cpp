@@ -212,6 +212,9 @@ int main()
     MinH.insert(vMin,7);
     MinH.insert(vMin,6);
     MinH.insert(vMin,5);
+    MinH.deleteHeap(vMin,10);
+    MinH.deleteHeap(vMin,6);
+
     MinH.Display(vMin);
 
 }
