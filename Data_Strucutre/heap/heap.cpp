@@ -16,20 +16,28 @@ public:
     void heapify(vector<int> &v, int NodeIndex)
     {
 
+        // size of array 
         int size = v.size();
+        // Max child index so its parent currently;
         int MaximunChildIndex = NodeIndex;
+        // index of left child
         int LeftChild = 2 * NodeIndex + 1;
+        // index of right child 
         int RightChild = 2 * NodeIndex + 2;
+
+        // checking if leftchild is great than parent 
         if (LeftChild < size && v[MaximunChildIndex] < v[LeftChild])
         {
             MaximunChildIndex = LeftChild;
         }
 
+        // checking if rightChild is great than parent 
         if (RightChild < size && v[MaximunChildIndex] < v[RightChild])
         {
             MaximunChildIndex = RightChild;
         }
 
+        // checking if parent index is not as itself
         if (MaximunChildIndex != NodeIndex)
         {
             swap(&v[MaximunChildIndex], &v[NodeIndex]);
@@ -88,6 +96,7 @@ public:
         {
             cout << ele << " ";
         }
+        cout<<'\n';
     }
 };
 
@@ -183,6 +192,7 @@ int main()
 {
     MaxHeap MaxH;
     MinHeap MinH;
+    vector<int> vMin;
 
     vector<int> v;
     MaxH.insert(v, 1);
@@ -194,4 +204,14 @@ int main()
     MaxH.deleteHeap(v,30);
     MaxH.insert(v, 10);
     MaxH.Display(v);
+
+    MinH.insert(vMin,50);
+    MinH.insert(vMin,10);
+    MinH.insert(vMin,9);
+    MinH.insert(vMin,8);
+    MinH.insert(vMin,7);
+    MinH.insert(vMin,6);
+    MinH.insert(vMin,5);
+    MinH.Display(vMin);
+
 }
