@@ -191,7 +191,7 @@ int main()
     MaxH.insert(v, 6);
     MaxH.insert(v, 30);
     MaxH.insert(v, 9);
-    // Mh.insert(v, 10);
-
+    MaxH.deleteHeap(v,30);
+    MaxH.insert(v, 10);
     MaxH.Display(v);
 }
