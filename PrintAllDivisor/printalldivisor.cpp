@@ -17,15 +17,12 @@ void printAllDivisor(int x)
 
         if (x % i == 0)
         {
+            v.push_back(i);
+
             if (x / i != i)
             {
                 int d = x / i;
-                v.push_back(x / d);
                 v.push_back(d);
-            }
-            else
-            {
-                v.push_back(i);
             }
         }
     }
