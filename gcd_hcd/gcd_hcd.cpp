@@ -22,6 +22,7 @@ int GCD(int x1, int x2)
 
 int GCD_Optimized(int x1, int x2)
 {
+
     int a = min(x1, x2);
     int b = max(x1, x2);
 
@@ -30,22 +31,24 @@ int GCD_Optimized(int x1, int x2)
 
         if (b > a)
         {
-            b = b% a;
+            b = b % a;
         }
         else
         {
-            a = a%b;
+            a = a % b;
         }
 
-        if( a <= 0 ){
-            cout<<b;
+        if (a <= 0)
+        {
+            cout << b;
             break;
-        }else if(b <= 0 ){
-            cout<< a;
+        }
+        else if (b <= 0)
+        {
+            cout << a;
             break;
         }
     }
-
 }
 int main()
 {
@@ -54,6 +57,12 @@ int main()
     cin >> n1 >> n2;
 
     // GCD(n1, n2);
-
-    GCD_Optimized(n1, n2);
+    if (n1 > 0 && n2 > 0)
+    {
+        GCD_Optimized(n1, n2);
+    }
+    else
+    {
+        cout << "zero";
+    }
 }
