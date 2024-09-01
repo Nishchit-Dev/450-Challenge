@@ -13,17 +13,24 @@ void swap(vector<int> &v, int i1, int i2)
 
 void BubbleSort(vector<int> &v)
 {
-    for (int i = 0; i <= v.size() ; i++)
+    for (int i = 0; i < v.size() ; i++)
     {
+        bool sorted = true;
         // cout<< "step -> "<< i<< endl;
-        for (int j = 0; j < v.size() - i ; j++)
+        for (int j = 0; j < v.size() - i - 1; j++)
         {
             // cout<<v[j]<<" ";
-
             if (v[j] > v[j+1])
             {
                 swap(v, j, j+1);
+                sorted = false;
             }
+
+
+        }
+        if(sorted){
+            cout<<"sorted already\n";
+            break;
         }
         // cout<<endl;
     }
@@ -41,10 +48,6 @@ int main()
         v.push_back(data);
     }
 
-    for (auto data : v)
-    {
-        cout << data << " ";
-    }
     cout<<endl;
     BubbleSort(v);
 
