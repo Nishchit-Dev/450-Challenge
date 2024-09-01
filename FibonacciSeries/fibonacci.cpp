@@ -21,7 +21,6 @@ int fibo(int &limit, int &n1 , int &n2 )
 }
 
 int fiboOptimized(int n){
-  
     if(n <=1)
         return n;
     int last = fiboOptimized(n-1);
