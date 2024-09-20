@@ -11,11 +11,10 @@ int findSecondLargest(vector<int> v)
     {
         int max = 0;
         int previousMax = 0;
-       
 
         for (int i = 0; i < v.size(); i++)
         {
-           
+            
             if (max < v[i])
             {   
                 previousMax = max;
